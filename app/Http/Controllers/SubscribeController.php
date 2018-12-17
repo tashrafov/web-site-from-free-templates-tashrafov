@@ -35,7 +35,19 @@ class SubscribeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $time=date("Y-m-d-h-i-s");
+        Subscribe::insert(
+            array(
+                array(
+                    'email'=>$request->email,
+                    'active'=>'1',
+                    'created_at' =>$time,
+                    'updated_at' =>$time
+                )
+            )
+        );
+        return redirect()->back();
     }
 
     /**

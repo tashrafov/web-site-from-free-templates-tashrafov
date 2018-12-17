@@ -22,6 +22,11 @@ class brandController extends Controller
         return $brands;
 
     }
+    public function select()
+    {
+        $brands = brand::get();
+        return view('store')->withBrands($brands);
+    }
 
     /**
      * Show the form for creating a new resource.

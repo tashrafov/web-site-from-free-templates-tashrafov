@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\p_category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\brand;
 
 class p_categoryController extends Controller
 {
@@ -16,10 +17,17 @@ class p_categoryController extends Controller
     public function index()
     {
         $brands = DB::table('p_categories')->select('category','id')->get();
-
         return $brands;
     }
 
+    public function select()
+    {
+        $category = DB::table('p_categories')->get();
+        $brands = brand::get();
+//        var_dump($category);
+//        exit();
+        return view('store')->withCategory($category)->withBrands($brands);
+    }
     /**
      * Show the form for creating a new resource.
      *
