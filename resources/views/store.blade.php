@@ -10,7 +10,7 @@
             <div class="row">
                 <form action="{{route('store')}}" method="post">
                     @csrf
-                    <input type="hidden" name="_method" value="post"/>
+                    <input type="hidden" name="_method" value="put"/>
                     <!-- ASIDE -->
                     <div id="aside" class="col-md-3">
                         <!-- aside Widget -->
@@ -21,8 +21,8 @@
                                     <div class="input-checkbox">
                                         <input name="category" type="checkbox"
                                                @if(isset($_POST['category']) && ($temp_cat->id == $_POST['category'] || $temp_cat->category == $_POST['category'] )) checked
-                                               @endif id="{{$temp_cat->id}}" value="{{$temp_cat->category}}">
-                                        <label for="{{$temp_cat->id}}">
+                                               @endif id="c-{{$temp_cat->id}}" value="{{$temp_cat->category}}">
+                                        <label for="c-{{$temp_cat->id}}">
                                             <span></span>
                                         {{$temp_cat->category}}
                                         <!--<small>(120)</small>-->
@@ -111,8 +111,12 @@
                                         </div>
                                     </div>
                                     <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart
-                                        </button>
+                                        <a href="{{url('/product/'.$product->id)}}">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add
+                                                to
+                                                cart
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

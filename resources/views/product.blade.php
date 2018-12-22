@@ -132,9 +132,9 @@
                             @endif
                         </div>
                         <p>{{$products->details}}</p>
-                        <form action="{{url('/product')}}" method="post">
+                        <form action="{{route('product/add')}}" method="post">
                             @csrf
-                            <input type="hidden" name="_method" value="post"/>
+                            <input type="hidden" name="_method" value="put"/>
                             <input type="hidden" name="productId" value="{{$products->id}}"/>
                             <input type="hidden" name="productName" value="{{$products->name}}"/>
                             <input type="hidden" name="productImage" value="{{$products->avatar}}"/>
@@ -529,7 +529,7 @@
                         <p>Sign Up for the <strong>NEWSLETTER</strong></p>
                         <form method="POST" action="{{route('product/subscribe')}}">
                             @csrf
-                            <input type="hidden" name="_method" value="post"/>
+                            <input type="hidden" name="_method" value="put"/>
                             <input class="input" name="email" type="email" placeholder="Enter Your Email">
                             <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
                         </form>

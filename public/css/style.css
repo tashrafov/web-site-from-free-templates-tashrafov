@@ -872,8 +872,11 @@ textarea.input {
 }
 
 .product .product-img>img {
-  width: 260px;
-  height: 300px;
+  max-width: 260px;
+  max-height: 300px;
+  display: inline-block;
+  margin: auto;
+  vertical-align: middle;
 }
 
 .product .product-img .product-label {

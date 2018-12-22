@@ -21,9 +21,9 @@
             <h3 class="footer-title">About Us</h3>
             <p>{{$about_us->details}}</p>
             <ul class="footer-links">
-              <li><a href="#"><i class="fa fa-map-marker"></i>{{$about_us->address}}</a></li>
+              <li><a href="{{route('about-us')}}"><i class="fa fa-map-marker"></i>{{$about_us->address}}</a></li>
               <li><a href="#"><i class="fa fa-phone"></i>{{$about_us->phone}}</a></li>
-              <li><a href="#"><i class="fa fa-envelope-o"></i>{{$about_us->email}}</a></li>
+              <li><a href="{{route('contact-us')}}"><i class="fa fa-envelope-o"></i>{{$about_us->email}}</a></li>
             </ul>
           </div>
         </div>
@@ -46,8 +46,8 @@
           <div class="footer">
             <h3 class="footer-title">Information</h3>
             <ul class="footer-links">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="{{route('about-us')}}">About Us</a></li>
+              <li><a href="{{route('contact-us')}}">Contact Us</a></li>
               <li><a href="#">Privacy Policy</a></li>
               <li><a href="#">Orders and Returns</a></li>
               <li><a href="#">Terms & Conditions</a></li>

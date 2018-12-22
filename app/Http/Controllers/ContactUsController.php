@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ContactUs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactUsController extends Controller
 {
@@ -17,6 +18,25 @@ class ContactUsController extends Controller
         //
     }
 
+    public function send(Request $request){
+
+        $this->validate($request,[
+            'from' => 'required|email',
+            'subject' => 'required',
+            'body' => 'required'
+        ]);
+        $data =[
+            'from' => $request->from,
+            'subject' => $request->subject,
+            'body' => $request->body
+        ];
+        Mail::send('emails.contact',$data,function($message) use ($data){
+            $message->from($data['from']);
+            $message->to('fb9fd21994-c3addd@inbox.mailtrap.io');
+            $message->subject($data['subject']);
+        });
+        return view('contact_us');
+    }
     /**
      * Show the form for creating a new resource.
      *

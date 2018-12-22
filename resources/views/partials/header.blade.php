@@ -48,8 +48,8 @@
         <div class="container">
             <ul class="header-links pull-left">
                 <li><a href="#"><i class="fa fa-phone"></i> {{$about_us->phone}}</a></li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> {{$about_us->email}}</a></li>
-                <li><a href="#"><i class="fa fa-map-marker"></i> {{$about_us->address}}</a></li>
+                <li><a href="{{route('contact-us')}}"><i class="fa fa-envelope-o"></i> {{$about_us->email}}</a></li>
+                <li><a href="{{route('about-us')}}"><i class="fa fa-map-marker"></i> {{$about_us->address}}</a></li>
             </ul>
             <ul class="header-links pull-right">
                 <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
@@ -78,7 +78,7 @@
                 <!-- SEARCH BAR -->
                 <div class="col-md-6">
                     <div class="header-search">
-                        <form method="post" action="{{route('store')}}">
+                        <form method="post" action="{{route('store.select')}}">
                             @csrf
                             <input type="hidden" name="_method" value="put"/>
                             <select name="category" class="input-select">

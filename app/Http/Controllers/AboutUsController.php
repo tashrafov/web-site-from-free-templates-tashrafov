@@ -14,7 +14,8 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-        //
+        $about= aboutus::get()[0];
+        return view('about_us')->withAbout($about);
     }
 
     /**

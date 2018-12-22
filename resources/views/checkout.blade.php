@@ -6,7 +6,9 @@
         <div class="container">
             <!-- row -->
             <div class="row">
-
+            <form method="post" action="{{route('checkout/placeorder')}}">
+                @csrf
+                <input type="hidden" name="_method" value="put"/>
                 <div class="col-md-7">
                     <!-- Billing Details -->
                     <div class="billing-details">
@@ -14,10 +16,10 @@
                             <h3 class="title">Billing address</h3>
                         </div>
                         <div class="form-group">
-                            <input class="input" type="text" name="first-name" placeholder="First Name">
+                            <input class="input" type="text" name="first_name" placeholder="First Name">
                         </div>
                         <div class="form-group">
-                            <input class="input" type="text" name="last-name" placeholder="Last Name">
+                            <input class="input" type="text" name="last_name" placeholder="Last Name">
                         </div>
                         <div class="form-group">
                             <input class="input" type="email" name="email" placeholder="Email">
@@ -32,21 +34,20 @@
                             <input class="input" type="text" name="country" placeholder="Country">
                         </div>
                         <div class="form-group">
-                            <input class="input" type="text" name="zip-code" placeholder="ZIP Code">
+                            <input class="input" type="text" name="zip_code" placeholder="ZIP Code">
                         </div>
                         <div class="form-group">
                             <input class="input" type="tel" name="tel" placeholder="Telephone">
                         </div>
                         <div class="form-group">
                             <div class="input-checkbox">
-                                <input type="checkbox" id="create-account">
-                                <label for="create-account">
+                                <input type="checkbox" name="create_account" id="create_account">
+                                <label for="create_account">
                                     <span></span>
                                     Create Account?
                                 </label>
                                 <div class="caption">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt.</p>
+                                    <p>Please insert your password:</p>
                                     <input class="input" type="password" name="password"
                                            placeholder="Enter Your Password">
                                 </div>
@@ -61,35 +62,35 @@
                             <h3 class="title">Shiping address</h3>
                         </div>
                         <div class="input-checkbox">
-                            <input type="checkbox" id="shiping-address">
+                            <input type="checkbox" name="shipping_address" id="shiping-address" name="shipping_address">
                             <label for="shiping-address">
                                 <span></span>
                                 Ship to a diffrent address?
                             </label>
                             <div class="caption">
                                 <div class="form-group">
-                                    <input class="input" type="text" name="first-name" placeholder="First Name">
+                                    <input class="input" type="text" name="s_first_name" placeholder="First Name">
                                 </div>
                                 <div class="form-group">
-                                    <input class="input" type="text" name="last-name" placeholder="Last Name">
+                                    <input class="input" type="text" name="s_last_name" placeholder="Last Name">
                                 </div>
                                 <div class="form-group">
-                                    <input class="input" type="email" name="email" placeholder="Email">
+                                    <input class="input" type="email" name="s_email" placeholder="Email">
                                 </div>
                                 <div class="form-group">
-                                    <input class="input" type="text" name="address" placeholder="Address">
+                                    <input class="input" type="text" name="s_address" placeholder="Address">
                                 </div>
                                 <div class="form-group">
-                                    <input class="input" type="text" name="city" placeholder="City">
+                                    <input class="input" type="text" name="s_city" placeholder="City">
                                 </div>
                                 <div class="form-group">
-                                    <input class="input" type="text" name="country" placeholder="Country">
+                                    <input class="input" type="text" name="s_country" placeholder="Country">
                                 </div>
                                 <div class="form-group">
-                                    <input class="input" type="text" name="zip-code" placeholder="ZIP Code">
+                                    <input class="input" type="text" name="s_zip_code" placeholder="ZIP Code">
                                 </div>
                                 <div class="form-group">
-                                    <input class="input" type="tel" name="tel" placeholder="Telephone">
+                                    <input class="input" type="tel" name="s_tel" placeholder="Telephone">
                                 </div>
                             </div>
                         </div>
@@ -177,9 +178,11 @@
                             I've read and accept the <a href="#">terms & conditions</a>
                         </label>
                     </div>
-                    <a href="#" class="primary-btn order-submit">Place order</a>
+
+                    <button type="submit" class="primary-btn order-submit">Place order</button>
                 </div>
                 <!-- /Order Details -->
+            </form>
             </div>
             <!-- /row -->
         </div>
@@ -197,7 +200,7 @@
                         <p>Sign Up for the <strong>NEWSLETTER</strong></p>
                         <form method="POST" action="{{route('checkout/subscribe')}}">
                             @csrf
-                            <input type="hidden" name="_method" value="post"/>
+                            <input type="hidden" name="_method" value="put"/>
                             <input class="input" name="email" type="email" placeholder="Enter Your Email">
                             <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
                         </form>
